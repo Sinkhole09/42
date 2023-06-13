@@ -6,12 +6,13 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:48:05 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/09 16:40:02 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:57:21 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-int	ft_strlen(char*str)
+
+int	ft_strlen(char *str)
 {
 	int	len_count;
 

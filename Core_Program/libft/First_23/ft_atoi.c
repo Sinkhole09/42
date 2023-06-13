@@ -6,11 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:56:23 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/08 20:00:02 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/13 12:16:32 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char* str)
+int	ft_atoi(char *str)
 {
 	int	num_to_return;
 	int	is_neg;
