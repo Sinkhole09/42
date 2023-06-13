@@ -6,12 +6,13 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 16:45:28 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/12 18:48:54 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:20:13 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -88,15 +89,11 @@ char	**ft_split(const char *str, char c)
 	return (split_returns);
 }
 
-int main(void)
-{
-	char** test;
-	int	i = 0;
-	test = ft_split("Hello from the other side", ' ');
-	while (*test)
-	{
-		printf ("%s\n", *test);
-		test++;
-	}
-	return 0;
-}
+// int main(void)
+// {
+// 	char** test;
+// 	int	i = 0;
+// 	test = ft_split("Hello from the other side", ' ');
+// 	write(1, *test, 50);
+// 	return 0;
+// }
