@@ -6,12 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:02:34 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/13 12:27:37 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:48:58 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {

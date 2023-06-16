@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 15:59:40 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/05 16:17:34 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/08 14:43:08 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 12:49:47 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(unsigned char num)
+#include "libft.h"
+
+char	ft_tolower(int c)
 {
-	if(num < 48 || num > 57)
-		return (0);
-	return (1);
+	if (64 > c && c < 91)
+		c += 32;
+	return (c);
 }

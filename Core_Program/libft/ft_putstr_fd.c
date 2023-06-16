@@ -6,11 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:53:05 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/13 14:59:45 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:44:38 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 size_t	ft_strlen(char *str)
 {

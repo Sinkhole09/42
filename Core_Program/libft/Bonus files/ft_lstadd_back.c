@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 16:27:35 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/05 18:30:43 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/15 17:53:17 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 18:10:48 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void*	ft_memset(void*ptr, int value, size_t size)
-{
-	size_t	index;
-	unsigned char*	p;
+#include "libft.h"
 
-	index = 0;
-	p = (unsigned char*)ptr;
-
-	while(index < size)
-	{
-		*p++ = (unsigned char)value;
-		index++;
-	}
-	return(ptr);
-}
-
-// int main(void)
+// t_list	*ft_lstlast(t_list *lst)
 // {
-// 	char str[10];
+// 	t_list	*last_node;
 
-// 	ft_memset(str, 35, sizeof(str));
-
-// 	int i;
-
-// 	i = 0;
-// 	while(i < 10)
-// 		printf("%c", str[i++]);
+// 	while (lst)
+// 	{
+// 		last_node = lst;
+// 		lst = lst -> next;
+// 	}
+// 	return (last_node);
 // }
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last_node;
+
+	last_node = ft_lstlast(*lst);
+	last_node -> next = new;
+}

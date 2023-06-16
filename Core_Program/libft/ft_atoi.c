@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 20:34:29 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/08 20:34:33 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/08 19:56:23 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 12:36:45 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char*src)
-{
-	int	index;
+#include "libft.h"
 
-	index = 0;
-	while(*(src + index))
-		index++;
-	return (index);
-}
-char	*ft_strdup(char*src)
+int	ft_atoi(char *str)
 {
-	int		len;
-	int		index;
-	char*	ptr_string;
+	int	num_to_return;
+	int	is_neg;
 
-	len = ft_strlen(src);
-	index = 0;
-	ptr_string = malloc(sizeof(char) * len);
-	while (*src)
+	is_neg = 0;
+	if (*str == '-')
 	{
-		*(ptr_string + index)= *src;
-		index++;
-		src++;
+		is_neg = 1;
+		str++;
 	}
-	*(ptr_string + index) = 0;
-	return (ptr_string);
+	num_to_return = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		num_to_return *= 10;
+		num_to_return += (*str - 48);
+		str++;
+	}
+	if (is_neg)
+		num_to_return *= -1;
+	return (num_to_return);
 }

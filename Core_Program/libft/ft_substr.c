@@ -6,15 +6,15 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 11:48:05 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/12 13:57:21 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:09:58 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
-	int	len_count;
+	size_t	len_count;
 
 	len_count = 0;
 	while (*(str + len_count) != 0)
@@ -24,7 +24,7 @@ int	ft_strlen(char *str)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int				len_sub_string;
+	size_t			len_sub_string;
 	unsigned int	index;
 	char			*ptr_substring;
 

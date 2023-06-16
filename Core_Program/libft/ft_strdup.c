@@ -1,18 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 14:43:08 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/08 14:44:18 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/08 20:34:29 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 12:46:12 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(int c)
+#include "libft.h"
+
+int	ft_strlen(char*src)
 {
-	if (64 > c && c < 91)
-		c += 32;
-	return (c);
+	int	index;
+
+	index = 0;
+	while (*(src + index))
+		index++;
+	return (index);
+}
+
+char	*ft_strdup(char *src)
+{
+	int		len;
+	int		index;
+	char	*ptr_string;
+
+	len = ft_strlen(src);
+	index = 0;
+	ptr_string = malloc(sizeof(char) * len);
+	while (*src)
+	{
+		*(ptr_string + index) = *src;
+		index++;
+		src++;
+	}
+	*(ptr_string + index) = 0;
+	return (ptr_string);
 }

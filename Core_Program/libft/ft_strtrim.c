@@ -6,11 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 13:16:14 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/09 16:45:19 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:06:33 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(char*str)
 {
@@ -24,11 +24,11 @@ size_t	ft_strlen(char*str)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int				len_sub_string;
+	size_t			len_sub_string;
 	unsigned int	index;
 	char			*ptr_substring;
 
-	len_sub_string = ft_strlen(((char *)s + start + 1));
+	len_sub_string = ft_strlen((char *)s) + start + 1;
 	if (len_sub_string < len)
 		ptr_substring = (char *)malloc(sizeof(char) * (len_sub_string + 1));
 	else

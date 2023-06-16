@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 12:38:07 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:57:01 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/08 19:08:18 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 13:00:45 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char))
+int	ft_strncmp(char *src, char *dest, int num)
 {
 	int	index;
 
-	index = -1;
-	while (s[++index])
-		f(index, s[index]);
+	index = 0;
+	while (src[index] && index <= num)
+	{
+		if (dest[index] > src[index])
+			return (-1);
+		else if (dest[index] < src[index])
+			return (1);
+		index++;
+	}
+	return 0;
 }

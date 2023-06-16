@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstiteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/13 12:38:07 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:57:01 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/16 11:28:41 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/16 11:33:39 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char))
+void	ft_lstiteri(t_list *lst, void (*f)(void *))
 {
-	int	index;
+	while (lst)
+	{
 
-	index = -1;
-	while (s[++index])
-		f(index, s[index]);
+	}
 }

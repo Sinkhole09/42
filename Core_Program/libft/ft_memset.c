@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 19:13:09 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/09 11:13:04 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/05 16:27:35 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 12:44:14 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void*dest, const void *src, size_t num)
-{
-	size_t				index;
-	unsigned char		*d;
-	const unsigned char	*s;
+#include "libft.h"
 
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
+void	*ft_memset(void*ptr, int value, size_t size)
+{
+	size_t			index;
+	unsigned char	*p;
+
 	index = 0;
-	while (index < num)
+	p = (unsigned char *)ptr;
+	while (index < size)
 	{
-		*(d + index) = s[index];
+		*p++ = (unsigned char)value;
 		index++;
 	}
-	return (dest);
+	return (ptr);
 }
+
+// int main(void)
+// {
+// 	char str[10];
+
+// 	ft_memset(str, 35, sizeof(str));
+
+// 	int i;
+
+// 	i = 0;
+// 	while(i < 10)
+// 		printf("%c", str[i++]);
+// }

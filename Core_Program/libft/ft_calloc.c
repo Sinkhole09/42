@@ -6,10 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 20:01:56 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/12 14:36:04 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:37:00 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -19,6 +20,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	return_ptr = malloc(size * count);
 	temp = (unsigned char *)return_ptr;
+	index = 0;
 	while (index < count * size + 1)
 		temp[index++] = '\0';
 	return (return_ptr);

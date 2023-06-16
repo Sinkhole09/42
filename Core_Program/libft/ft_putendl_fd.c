@@ -6,11 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:01:23 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/13 16:17:07 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:44:26 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 size_t	ft_strlen(char *str)
 {
@@ -28,8 +28,8 @@ void	ft_putendl_fd(char *str, int fd)
 	write(fd, "\n", 1);
 }
 
-int main(void)
-{
-	ft_putendl_fd("Hello its me", 1);
-	return 0;
-}
+// int main(void)
+// {
+// 	ft_putendl_fd("Hello its me", 1);
+// 	return 0;
+// }

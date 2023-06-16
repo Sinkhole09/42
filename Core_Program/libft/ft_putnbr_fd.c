@@ -6,11 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 16:18:05 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/13 16:19:50 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:44:30 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	print_integer(int i, int fd)
 {

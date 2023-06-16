@@ -6,9 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:36:57 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/09 13:21:27 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:00:29 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlen(char*str)
 {
@@ -30,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len_s1 = ft_strlen((char *)s1);
 	len_s2 = ft_strlen((char *)s2);
-	ptr_joined = (char *)malloc(sizeof(char) * (len_s1 + len_s2 ));
+	ptr_joined = (char *)malloc(sizeof(char) * (len_s1 + len_s2 - 1));
 	if (ptr_joined == NULL)
 		return (NULL);
 	index = 0;
@@ -39,7 +41,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		ptr_joined[index] = s1[index];
 		index++;
 	}
-	while (index < (len_s1 + len_s2 ))
+	suffix_index = 0;
+	while (index < (len_s1 + len_s2))
 		ptr_joined[index++] = s2[suffix_index++];
 	ptr_joined[index] = '\0';
 	return (ptr_joined);

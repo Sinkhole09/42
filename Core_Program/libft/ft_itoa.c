@@ -6,12 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:32 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/13 11:38:05 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/15 12:38:40 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

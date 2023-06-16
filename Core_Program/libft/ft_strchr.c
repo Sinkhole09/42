@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 16:00:17 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/05 16:15:24 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/08 14:46:37 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 12:45:07 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(unsigned char c)
+#include "libft.h"
+
+char	*ft_strchr(char *str, int c)
 {
-	if((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123)
-		return (1);
-	return (0);
+	if (c == '\0')
+		return (str);
+	while (*str)
+	{
+		if (*str == c)
+			return (str);
+		str++;
+	}
+	return (NULL);
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char	str[20] = "I got money";
+// 	char	check = 'a';
+
+// 	printf("%s", ft_strchr(str, check));
+// 	return 0;
+// }

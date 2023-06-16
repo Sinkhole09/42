@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 14:46:37 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/09 11:09:59 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/05 16:11:14 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 12:38:03 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char*	ft_strchr(char* str, int c)
+#include "libft.h"
+
+int	ft_isascii(unsigned char n)
 {
-	if (c == '\0')
-		return (str);
-	while (*str)
-	{
-		if (*str == c)
-			return (str);
-		str++;
-	}
-	return (NULL);
+	if (n >= 0 && n <= 127)
+		return (1);
+	return (0);
 }
-
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char	str[20] = "I got money";
-// 	char	check = 'a';
-
-// 	printf("%s", ft_strchr(str, check));
-// 	return 0;
-// }

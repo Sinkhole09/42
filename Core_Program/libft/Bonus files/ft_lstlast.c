@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 18:25:17 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/09 11:12:03 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/15 17:40:37 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/15 17:52:20 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_bzero(void*ptr, size_t size)
-{
-	size_t			index;
-	unsigned char	*p;
+#include "libft.h"
 
-	index = 0;
-	p = (unsigned char *)ptr;
-	while (index < size)
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*last_node;
+
+	while (lst)
 	{
-		*p++ = 0;
-		index++;
+		last_node = lst;
+		lst = lst -> next;
 	}
-	return (ptr);
+	return (last_node);
 }
