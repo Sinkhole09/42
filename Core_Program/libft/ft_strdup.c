@@ -6,21 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 20:34:29 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:46:12 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:49:04 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_strlen(char*src)
-{
-	int	index;
-
-	index = 0;
-	while (*(src + index))
-		index++;
-	return (index);
-}
 
 char	*ft_strdup(char *src)
 {

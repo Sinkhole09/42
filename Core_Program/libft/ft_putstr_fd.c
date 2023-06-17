@@ -6,21 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:53:05 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:44:38 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:48:30 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(char *str)
-{
-	size_t	len_count;
-
-	len_count = 0;
-	while (*(str + len_count) != 0)
-		len_count++;
-	return (len_count);
-}
 
 void	ft_putstr_fd(char *str, int fd)
 {

@@ -12,44 +12,46 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(char*str)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+{
+	size_t	len_src;
+	size_t	index;
+
+	len_src = (size_t)ft_strlen ((char *)src);
+	if (size == 0)
+		return (len_src);
+	index = 0;
+	while (src[index] && size--)
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+	return (len_src);
+}
+
+size_t	ft_strlen(const char *str)
 {
 	size_t	len_count;
 
 	len_count = 0;
-	while (*(str + len_count) != 0)
+	while (str[len_count])
 		len_count++;
 	return (len_count);
 }
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
-{
-	size_t	len_src;
-	int		index;
-
-	len_src = ft_strlen(src);
-	if (len_src <= size)
-	{
-		index = -1;
-		while (index++ < (int)len_src)
-			*(dest + index) = *(src + index);
-	}
-	else
-	{
-		index = -1;
-		while (index++ < (int)size)
-			*(dest + index) = *(src + index);
-	}
-	*(dest + ft_strlen(dest)) = 0;
-	return (ft_strlen(dest));
-}
-
-// int	main(void)
+// #include <string.h>
+// int main()
 // {
-// 	char	src[11] = "0123456789";
-// 	char	dest[27] = "abcdefghijklmnopqrstuvxyz";
+// 	char src[] = "coucou";
+// 	char dest[10]; memset(dest, 'A', 10);
 
-// 	printf("%s\n", dest);
-// 	printf("%ld\n", ft_strlcpy(dest, src, 26));
-// 	printf("%s", dest);
+//     size_t result = ft_strlcpy(dest, src, 1);
+
+//     printf("Source: %s\n", src);
+//     printf("Destination: %c\n", dest[0]);
+// 	// write(1, dest + ft_strlen((char* )src) + 1, 1);
+//     printf("\nLength of the copied string: %zu\n", result);
+
+//     return 0;
 // }

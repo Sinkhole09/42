@@ -6,21 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:36:57 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 13:00:29 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:49:13 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(char*str)
-{
-	size_t	len_count;
-
-	len_count = 0;
-	while (*(str + len_count) != 0)
-		len_count++;
-	return (len_count);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

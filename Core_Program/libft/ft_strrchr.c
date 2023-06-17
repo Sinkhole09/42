@@ -6,15 +6,15 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:06:39 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 13:02:40 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:26:15 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char*str)
+size_t	ft_strlen(const char *str)
 {
-	int	len_count;
+	size_t	len_count;
 
 	len_count = 0;
 	while (*(str + len_count) != 0)
@@ -22,28 +22,45 @@ int	ft_strlen(char*str)
 	return (len_count);
 }
 
-char	*ft_strrchar(char *str, char c)
+char	*ft_strrchr(const char *str, int c)
 {
 	int	index;
+	int	temp_index;
 
-	index = ft_strlen(str) - 1;
-	if (c == '\0')
-		return (str);
-	while (index >= 0)
+	if ((*str == '\0' && c == 0) || c > 255)
+		return ((char *)str);
+	if (str == NULL || *str == '\0' || c > 255)
+		return (NULL);
+	if (c == 0)
+		return ((char*)str + ft_strlen(str));
+	temp_index = -1;
+	index = 0;
+	while (str[index])
 	{
 		if (str[index] == c)
-			return (str + index);
-		index--;
+			temp_index = index;
+		index++;
 	}
-	return (NULL);
+	if (temp_index == -1)
+		return (NULL);
+	return ((char *)str + temp_index);
 }
 
-
-// int	main(void)
+// #include <stdio.h>
+// int main()
 // {
-// 	char	str[20] = "I got money";
-// 	char	check = 'a';
+// 	char s[] = "tripouille";
+// 	// char s2[] = "ltripouiel";
+// 	// char s3[] = "";
+// 	// char* empty = (char*)calloc(1, 1);
+// 	char*	v;
+// 	v = s;
+//     char *result = ft_strrchr(v, 0);
 
-// 	printf("%s", ft_strrchr(str, check));
-// 	return 0;
+//     if (result != NULL)
+//         printf("Last occurrence found at index: %ld\n", result - v);
+//     else
+//         printf("not found in the string.\n");
+
+//     return 0;
 // }

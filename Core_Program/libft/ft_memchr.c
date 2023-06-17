@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:28:34 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:50:49 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/16 19:00:38 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,27 @@ void	*ft_memchr(const void *dest, int value, size_t num)
 	size_t			index;
 	unsigned char	*d;
 
+	if (num == 0)
+		return (NULL);
 	d = (unsigned char *)dest;
 	index = 0;
-	while (index < num && *d)
+	while (index < num)
 	{
-		if (*d == value)
+		if (*d == (unsigned char)value)
 			return ((void *)d);
 		d++;
+		index++;
 	}
-	return ((void *)dest);
+	return (NULL);
 }
+
+// int	main(void)
+// {
+// 	char s[] = {0, 1, 2 ,3 ,4 ,5};
+// 	void *result = ft_memchr(s, 2 + 256, 3);
+// 	if (result != NULL)
+// 		printf("Value found: %u\n", *(unsigned char *)result);
+// 	else
+// 		printf("Value not found.\n");
+// 	return 0;
+// }

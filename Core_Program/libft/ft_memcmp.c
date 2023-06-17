@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:38:52 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:40:38 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/16 19:28:09 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_memcmp(const void *src, const void *dest, size_t num)
 	s = (unsigned char *) src;
 	d = (unsigned char *) dest;
 	index = 0;
-	while (index <= num)
+	while (index < num)
 	{
 		if (d[index] > s[index])
 			return (-1);
@@ -35,9 +35,10 @@ int	ft_memcmp(const void *src, const void *dest, size_t num)
 
 // int	main(void)
 // {
-// 	char	array1[20] = "hello World";
-// 	char	array2[20] = "hello world";
-
-// 	printf("%d\n", ft_memcmp(array1, array2, 6));
+// 	char s[] = {-128, 0, 127, 0};
+// 	char sCpy[] = {-128, 0, 127, 0};
+// 	char s2[] = {0, 0, 127, 0};
+// 	char s3[] = {0, 0, 42, 0};
+// 	printf("%d\n", ft_memcmp(s2, s3, 4));
 // 	return 0;
 // }

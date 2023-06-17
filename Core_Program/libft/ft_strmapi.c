@@ -6,21 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:02:34 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:48:58 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:49:30 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_strlen(char *str)
-{
-	int	len_count;
-
-	len_count = 0;
-	while (*(str + len_count) != 0)
-		len_count++;
-	return (len_count);
-}
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {

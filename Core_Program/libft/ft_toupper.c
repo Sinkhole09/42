@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:36:48 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:49:54 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:41:01 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 char	ft_toupper(int c)
 {
-	if (96 > c && c < 123)
+	if (96 < c && c < 123)
 		c -= 32;
 	return (c);
 }
+
+// int	main(void)
+// {
+// 	printf("%c", ft_toupper('a'));
+// }

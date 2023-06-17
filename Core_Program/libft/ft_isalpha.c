@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:59:33 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:37:40 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/16 19:32:47 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	ft_isalpha(unsigned char c)
 {
-	if (c < 65 || c > 122)
-		return (0);
-	return (1);
+	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+		return (1);
+	return (0);
 }
+
+// int main(void)
+// {
+// 	printf ("%d", ft_isalpha('A' - 1));
+// }

@@ -6,7 +6,7 @@
 #    By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 18:54:02 by ssilakar          #+#    #+#              #
-#    Updated: 2023/06/15 13:30:19 by ssilakar         ###   ########.fr        #
+#    Updated: 2023/06/16 15:37:05 by ssilakar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ CFILES = $(wildcard ./*.c)
 
 OBJECTS = $(CFILES:.c=.o)
 
-.PHONY = clean
 all: $(LIBRARY)
 
 $(LIBRARY): $(OBJECTS)
