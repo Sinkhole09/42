@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:06:39 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/17 17:26:15 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:50:41 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strrchr(const char *str, int c)
 	if (str == NULL || *str == '\0' || c > 255)
 		return (NULL);
 	if (c == 0)
-		return ((char*)str + ft_strlen(str));
+		return ((char *)str + ft_strlen(str));
 	temp_index = -1;
 	index = 0;
 	while (str[index])

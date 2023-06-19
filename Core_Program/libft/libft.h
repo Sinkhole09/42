@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:59:46 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 11:49:11 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:03:44 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# define SHUT_UP "SHUT UP!"
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 int		ft_atoi(const char *str);
 void	*ft_bzero(void*ptr, size_t size);
 void	*ft_calloc(size_t count, size_t size);
@@ -40,10 +34,11 @@ void	*ft_memset(void*ptr, int value, size_t size);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int nb, int fd);
 void	ft_putstr_fd(char *str, int fd);
+void	ft_putchar_fd(char c, int fd);
 char	**ft_split(const char *str, char c);
 char	*ft_strchr(char *str, int c);
 char	*ft_strdup(char *src);
-void	ft_striteri(char *s, void (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
@@ -56,4 +51,11 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	ft_tolower(int c);
 char	ft_toupper(int c);
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
 #endif

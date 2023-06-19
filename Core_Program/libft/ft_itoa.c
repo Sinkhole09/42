@@ -6,32 +6,18 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:32 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:38:40 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:34:25 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_recursive_fucntion(char *array, long n, long *index)
 {
-	void			*return_ptr;
-	unsigned char	*temp;
-	size_t			index;
-
-	return_ptr = malloc(size * count);
-	temp = (unsigned char *)return_ptr;
-	index = 0;
-	while (index < count * size + 1)
-		temp[index++] = '\0';
-	return (return_ptr);
-}
-
-void	ft_recursive_fucntion(char *array, int n, int *index)
-{
-	int	to_save;
+	unsigned int	to_save;
 
 	to_save = n % 10;
-	if (n > 10)
+	if (n >= 10)
 	{
 		n /= 10;
 		ft_recursive_fucntion(array, n, index);
@@ -41,31 +27,42 @@ void	ft_recursive_fucntion(char *array, int n, int *index)
 	return ;
 }
 
+int	calc_magnitude(int n)
+{
+	int		magnitude;
+	long	temp;
+
+	magnitude = 1;
+	temp = n;
+	while (temp >= 10)
+	{
+		temp /= 10;
+		magnitude += 1;
+	}
+	return (magnitude);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		magnitude;
-	int		power_ten;
-	int		*num_pointer;
+	long	num_pointer;
 
-	num_pointer = (int *)ft_calloc(1, sizeof(int));
-	magnitude = 1;
-	power_ten = 10;
-	while ((n / power_ten))
-	{
-		power_ten *= 10;
-		magnitude += 1;
-	}
+	num_pointer = 0;
+	magnitude = calc_magnitude(n);
 	if (n < 0)
+		if (n == -2147483648)
+			return (ft_strdup("-2147483648"));
 		magnitude += 1;
-	str = (char *)malloc(sizeof(char) * magnitude);
+	str = (char *)malloc(sizeof(char) * (magnitude + 1));
 	if (n < 0)
 	{
 		str[0] = '-';
-		*num_pointer = 1;
+		num_pointer = 1;
 		n *= -1;
 	}
-	ft_recursive_fucntion(str, n, num_pointer);
+	ft_recursive_fucntion(str, (long)n, &num_pointer);
+	str[num_pointer] = '\0';
 	return (str);
 }
 
