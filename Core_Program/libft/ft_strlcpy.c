@@ -17,11 +17,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	size_t	len_src;
 	size_t	index;
 
-	len_src = (size_t)ft_strlen ((char *)src);
+	index = 0;
+	len_src = ft_strlen(src);
 	if (size == 0)
 		return (len_src);
-	index = 0;
-	while (src[index] && size--)
+	while (src[index] && index < (size - 1))
 	{
 		dest[index] = src[index];
 		index++;
@@ -48,9 +48,10 @@ size_t	ft_strlen(const char *str)
 
 //     size_t result = ft_strlcpy(dest, src, 1);
 
-//     printf("Source: %s\n", src);
-//     printf("Destination: %c\n", dest[0]);
-// 	// write(1, dest + ft_strlen((char* )src) + 1, 1);
+//     printf("Source: %s\nDest[0]: \n", src);
+// 	write(1, dest, 1);
+// 	write(1, "\nDest[1]\n", 9);
+// 	write(1, dest + 1, 1);
 //     printf("\nLength of the copied string: %zu\n", result);
 
 //     return 0;

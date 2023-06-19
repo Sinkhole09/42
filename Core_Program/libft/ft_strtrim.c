@@ -6,34 +6,49 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 13:16:14 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/17 12:49:48 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:15:15 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char* ft_substr(char const* s, unsigned int start, size_t len)
 {
-	size_t			len_sub_string;
-	unsigned int	index;
-	char			*ptr_substring;
+    char* ptr_substring = (char*)malloc(sizeof(char) * (len + 1));
+    if (ptr_substring == NULL)
+        return NULL;
 
-	len_sub_string = ft_strlen((char *)s) + start + 1;
-	if (len_sub_string < len)
-		ptr_substring = (char *)malloc(sizeof(char) * (len_sub_string + 1));
-	else
-		ptr_substring = (char *)malloc(sizeof(char) * len);
-	if (ptr_substring == NULL)
-		return (NULL);
-	index = start;
-	while (s[index] && (index - start) < len)
-	{
-		ptr_substring[index - start] = s[index];
-		index++;
-	}
-	ptr_substring[index] = '\0';
-	return (ptr_substring);
+    unsigned int index = 0;
+    while (index < len && s[start + index])
+    {
+        ptr_substring[index] = s[start + index];
+        index++;
+    }
+    ptr_substring[index] = '\0';
+    return ptr_substring;
 }
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	size_t			len_sub_string;
+// 	unsigned int	index;
+// 	char			*ptr_substring;
+
+// 	len_sub_string = len + 1;
+// 	if (len_sub_string < len)
+// 		ptr_substring = (char *)malloc(sizeof(char) * (len_sub_string + 1));
+// 	else
+// 		ptr_substring = (char *)malloc(sizeof(char) * len);
+// 	if (ptr_substring == NULL)
+// 		return (NULL);
+// 	index = start;
+// 	while (s[index] && (index - start) < len)
+// 	{
+// 		ptr_substring[index - start] = s[index];
+// 		index++;
+// 	}
+// 	ptr_substring[index] = '\0';
+// 	return (ptr_substring);
+// }
 
 int	ft_position(char *str, char *set, int start_check_position, int value)
 {
@@ -63,7 +78,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*ptr_trimmed;
 
 	start = ft_position((char *)s1, (char *) set, 0, 1);
-	end = ft_position((char *)s1, (char *)set, ft_strlen((char *)s1) - 1, -1);
+	end = ft_position((char *)s1, (char *)set,
+			ft_strlen((char *)s1) - 1, -1);
 	if (start > end)
 		return (NULL);
 	ptr_trimmed = ft_substr(s1, start, end - start + 1);
