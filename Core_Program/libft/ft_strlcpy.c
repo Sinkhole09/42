@@ -30,15 +30,15 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (len_src);
 }
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	len_count;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	len_count;
 
-	len_count = 0;
-	while (str[len_count])
-		len_count++;
-	return (len_count);
-}
+// 	len_count = 0;
+// 	while (str[len_count])
+// 		len_count++;
+// 	return (len_count);
+// }
 
 // #include <string.h>
 // int main()

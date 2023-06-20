@@ -6,13 +6,13 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:43:08 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/16 19:36:10 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:07:46 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (64 < c && c < 91)
 		c += 32;

@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:56:23 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 12:39:24 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:25:37 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_atoi(const char *str)
 	int	num_to_return;
 
 	num_to_return = 0;
-	while (*str < '!' || *str > '~')
+	while (*str <= '!' || *str >= '~')
 		str++;
 	check = ft_check_sign(&str, &is_neg);
 	if (check == -1)

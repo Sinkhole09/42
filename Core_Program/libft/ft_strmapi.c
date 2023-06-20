@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:02:34 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 18:18:21 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:27:19 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,19 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 		str_retrn[index] = f(index, s[index]);
 		index++;
 	}
+	str_retrn[index] = '\0';
 	return (str_retrn);
 }
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	len_count;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	len_count;
 
-	len_count = 0;
-	while (*(str + len_count) != 0)
-		len_count++;
-	return (len_count);
-}
+// 	len_count = 0;
+// 	while (*(str + len_count) != 0)
+// 		len_count++;
+// 	return (len_count);
+// }
 
 // #include <string.h>
 // char addOne(unsigned int i, char c) {return (i + c);}

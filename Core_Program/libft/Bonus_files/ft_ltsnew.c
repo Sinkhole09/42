@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_ltsnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 11:44:51 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/16 13:15:44 by ssilakar         ###   ########.fr       */
+/*   Created: 2023/06/15 17:05:40 by ssilakar          #+#    #+#             */
+/*   Updated: 2023/06/20 15:21:27 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,5 @@ t_list	*ft_ltsnew(void *content)
 		return (NULL);
 	head -> content = content;
 	head -> next = NULL;
-	return (head);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*last_node;
-
-	last_node = ft_lstlast(*lst);
-	last_node -> next = new;
-}
-
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void( *del)(void *))
-{
-	t_list	*head;
-	t_list	*node;
-
-	head = ft_ltsnew(f(lst -> content));
-	lst = lst -> next;
-	while (*lst)
-	{
-		node = ft_ltsnew(f(lst -> content));
-		ft_lstadd_back(&head, node);
-		lst = lst -> next;
-	}
-	node -> next = NULL;
 	return (head);
 }

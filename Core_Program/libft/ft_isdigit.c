@@ -6,13 +6,13 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:59:40 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:38:17 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:21:46 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(unsigned char num)
+int	ft_isdigit(int num)
 {
 	if (num < 48 || num > 57)
 		return (0);

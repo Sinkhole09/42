@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:32 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 17:34:25 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:10:53 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char	*ft_itoa(int n)
 			return (ft_strdup("-2147483648"));
 		magnitude += 1;
 	str = (char *)malloc(sizeof(char) * (magnitude + 1));
+	if (!str)
+		return (NULL);
 	if (n < 0)
 	{
 		str[0] = '-';

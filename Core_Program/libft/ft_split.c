@@ -6,29 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 16:45:28 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/16 15:14:28 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:36:50 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_substr(const char *s, unsigned int start, size_t len)
-{
-	unsigned int	index;
-	char			*ptr_substring;
-
-	ptr_substring = (char *)malloc(sizeof(char) * (len + 1));
-	if (ptr_substring == NULL)
-		return (NULL);
-	index = 0;
-	while (index < len && s[start + index])
-	{
-		ptr_substring[index] = s[start + index];
-		index++;
-	}
-	ptr_substring[index] = '\0';
-	return (ptr_substring);
-}
 
 int	ft_word_count(const char *str, char c)
 {
@@ -50,6 +32,25 @@ int	ft_word_count(const char *str, char c)
 	}
 	return (word_count + 1);
 }
+
+// char	*ft_substr(const char *s, unsigned int start, size_t len)
+// {
+// 	unsigned int	index;
+// 	char			*ptr_substring;
+
+// 	ptr_substring = (char *)malloc(sizeof(char) * (len + 1));
+// 	if (ptr_substring == NULL)
+// 		return (NULL);
+// 	index = 0;
+// 	while (index < len && s[start + index])
+// 	{
+// 		ptr_substring[index] = s[start + index];
+// 		index++;
+// 	}
+// 	ptr_substring[index] = '\0';
+// 	return (ptr_substring);
+// }
+
 /*
 ints[0] = col, 
 [1] = val,

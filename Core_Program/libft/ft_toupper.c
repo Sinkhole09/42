@@ -6,20 +6,25 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:36:48 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/17 12:41:01 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:07:55 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if (96 < c && c < 123)
+	if (c >= 'a' && c <= 'z')
 		c -= 32;
 	return (c);
 }
 
 // int	main(void)
 // {
-// 	printf("%c", ft_toupper('a'));
+// 	int	i = 0;
+// 	while (i < 256)
+// 	{
+// 		printf("|%c, |", ft_toupper(i));
+// 		i ++;
+// 	}
 // }

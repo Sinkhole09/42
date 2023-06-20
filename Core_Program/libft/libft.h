@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:59:46 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 18:03:44 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:50:25 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 int		ft_atoi(const char *str);
 void	*ft_bzero(void*ptr, size_t size);
 void	*ft_calloc(size_t count, size_t size);
-int		ft_isalnum(unsigned char c);
-int		ft_isalpha(unsigned char c);
-int		ft_isascii(unsigned char c);
-int		ft_isdigit(unsigned char num);
-int		ft_isprint(unsigned char c);
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int num);
+int		ft_isprint(int c);
 char	*ft_itoa(int n);
 void	*ft_memchr(const void *dest, int value, size_t num);
 int		ft_memcmp(const void *src, const void *dest, size_t num);
@@ -49,13 +49,22 @@ char	*ft_strnstr(const char*str, const char*to_find, size_t len);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	ft_tolower(int c);
-char	ft_toupper(int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstnew(void *content);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void( *del)(void *));
 
 #endif

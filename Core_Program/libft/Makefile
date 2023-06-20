@@ -6,14 +6,9 @@
 #    By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/13 18:54:02 by ssilakar          #+#    #+#              #
-#    Updated: 2023/06/19 18:19:51 by ssilakar         ###   ########.fr        #
+#    Updated: 2023/06/20 18:50:52 by ssilakar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-# INCLUDE_DIRECTORIES = ./First_23 ./Additional_functions
-NAME = libft.a
 
 # CFILES = $(foreach D, $(INCLUDE_LIBRARIES), $(wildcard $(D)/*.c))
 CFILES =	ft_atoi.c \
@@ -51,22 +46,39 @@ CFILES =	ft_atoi.c \
 			ft_tolower.c \
 			ft_toupper.c
 
-OBJECTS = $(CFILES:.c=.o)
+BONUS_CFILES =	ft_lstadd_back.c \
+				ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstlast.c \
+				ft_lstmap.c \
+				ft_lstnew.c \
+				ft_lstsize.c
 
-.PHONY: re clean fclean all
+BONUS_OBJECTS = $(BONUS_CFILES:.c=.o)
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
+NAME = libft.a
+OBJECTS = $(CFILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(BONUS_OBJECTS)
 	ar rcs $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+	
+bonus: ${OBJECTS} ${BONUS_OBJECTS}
+	ar rcs $(NAME) ${BONUS_OBJECTS}
 
 clean:
-	rm $(OBJECTS)
+	rm $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
 	rm $(NAME)
 
 re: fclean all
+
+.PHONY: re clean fclean all

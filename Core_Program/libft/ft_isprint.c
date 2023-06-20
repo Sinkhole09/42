@@ -6,13 +6,13 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:19:21 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/15 12:38:36 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:21:52 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(unsigned char c)
+int	ft_isprint(int c)
 {
 	if (c > 31 && c < 127)
 		return (1);

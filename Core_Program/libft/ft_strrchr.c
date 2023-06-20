@@ -6,21 +6,11 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:06:39 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 17:50:41 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:37:43 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len_count;
-
-	len_count = 0;
-	while (*(str + len_count) != 0)
-		len_count++;
-	return (len_count);
-}
 
 char	*ft_strrchr(const char *str, int c)
 {
@@ -45,6 +35,16 @@ char	*ft_strrchr(const char *str, int c)
 		return (NULL);
 	return ((char *)str + temp_index);
 }
+
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	len_count;
+
+// 	len_count = 0;
+// 	while (*(str + len_count) != 0)
+// 		len_count++;
+// 	return (len_count);
+// }
 
 // #include <stdio.h>
 // int main()

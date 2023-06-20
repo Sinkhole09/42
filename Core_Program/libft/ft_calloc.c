@@ -6,32 +6,17 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 20:01:56 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/19 12:58:22 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:16:44 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void*ptr, int value, size_t size)
-{
-	size_t			index;
-	unsigned char	*p;
-
-	index = 0;
-	p = (unsigned char *)ptr;
-	while (index < size)
-	{
-		*p++ = (unsigned char)value;
-		index++;
-	}
-	return (ptr);
-}
-
 void	*ft_calloc(size_t count, size_t size)
 {
 	void			*return_ptr;
 
-	if (count > SIZE_MAX / size)
+	if (!(count == 0 || size == 0) && count > SIZE_MAX / size)
 		return (NULL);
 	return_ptr = malloc(size * count);
 	if (!return_ptr)
@@ -39,6 +24,21 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_memset(return_ptr, 0, size * count);
 	return (return_ptr);
 }
+
+// void	*ft_memset(void*ptr, int value, size_t size)
+// {
+// 	size_t			index;
+// 	unsigned char	*p;
+
+// 	index = 0;
+// 	p = (unsigned char *)ptr;
+// 	while (index < size)
+// 	{
+// 		*p++ = (unsigned char)value;
+// 		index++;
+// 	}
+// 	return (ptr);
+// }
 
 // #include <stdlib.h>
 // #include <stdio.h>
