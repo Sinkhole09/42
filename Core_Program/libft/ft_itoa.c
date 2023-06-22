@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 18:51:32 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/20 17:10:53 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:54:23 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ void	ft_recursive_fucntion(char *array, long n, long *index)
 	return ;
 }
 
-int	calc_magnitude(int n)
+int	calc_magnitude(long n)
 {
 	int		magnitude;
 	long	temp;
 
+	if (n < 0)
+		n *= -1;
 	magnitude = 1;
 	temp = n;
 	while (temp >= 10)
@@ -51,9 +53,11 @@ char	*ft_itoa(int n)
 	num_pointer = 0;
 	magnitude = calc_magnitude(n);
 	if (n < 0)
+	{
 		if (n == -2147483648)
 			return (ft_strdup("-2147483648"));
 		magnitude += 1;
+	}
 	str = (char *)malloc(sizeof(char) * (magnitude + 1));
 	if (!str)
 		return (NULL);

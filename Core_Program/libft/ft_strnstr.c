@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 19:42:22 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/17 19:15:29 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:55:56 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	index;
 
+	if ((str == NULL || to_find == NULL) && len == 0)
+		return (0);
 	if (*to_find == '\0')
 		return ((char *)str);
 	while (*str && len > 0)

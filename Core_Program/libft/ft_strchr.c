@@ -6,28 +6,29 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 14:46:37 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/17 13:21:32 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:44:43 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr(const char *str, int k)
 {
+	unsigned char	c;
+
+	c = (unsigned char)k;
 	if (c == 0)
-		return (str + ft_strlen(str));
-	if (c < 0 || c > 255)
-		return (str);
+		return ((char *)str + ft_strlen(str));
 	while (*str)
 	{
 		if (*str == c)
-			return (str);
+			return ((char *)str);
 		str++;
 	}
 	return (NULL);
 }
 
+// #include <stdio.h>
 // int main() {
 //     char s[] = "tripouille";
 //     char *result = ft_strchr(s, 't' + 256);

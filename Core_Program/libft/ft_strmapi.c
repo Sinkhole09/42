@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:02:34 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/20 13:27:19 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:17:01 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	char	*str_retrn;
 
 	index = 0;
-	str_retrn = (char *)malloc(sizeof(char) * ft_strlen((char *)s));
+	if (!s || !f)
+		return (NULL);
+	str_retrn = (char *)malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+	if (!str_retrn)
+		return (NULL);
 	while (s[index])
 	{
 		str_retrn[index] = f(index, s[index]);

@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:08:18 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/17 17:34:37 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:47:56 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int	ft_strncmp(char const *s1, char const *s2, size_t num)
 {
-	size_t	index;
+	size_t			index;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 
 	index = 0;
-	if ((*s1 == '\0' && *s2 == '\0') || num == 0)
+	if ((*str1 == '\0' && *str2 == '\0') || num == 0)
 		return (0);
-	while (s1[index] && s2[index] && num)
+	while ((str1[index] || str2[index]) && index < num)
 	{
-		if (s1[index] != s2[index])
-			return (s1[index] - s2[index]);
+		if (str1[index] != str2[index])
+			return (str1[index] - str2[index]);
 		index++;
-		num--;
 	}
-	if (s1[index] == '\0' && !(s2[index] == '\0'))
-		return (0 - s2[index]);
-	else if (s2[index] == '\0' && !(s1[index] == '\0'))
-		return (s1[index]);
 	return (0);
 }

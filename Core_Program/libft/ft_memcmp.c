@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:38:52 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/16 19:28:09 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/20 20:21:16 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int	ft_memcmp(const void *src, const void *dest, size_t num)
 	index = 0;
 	while (index < num)
 	{
-		if (d[index] > s[index])
-			return (-1);
-		else if (d[index] < s[index])
-			return (1);
+		if (d[index] != s[index])
+			return (s[index] - d[index]);
 		index++;
 	}
 	return (0);

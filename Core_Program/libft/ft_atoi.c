@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 19:56:23 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/20 17:25:37 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:01:57 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	ft_atoi(const char *str)
 	int	num_to_return;
 
 	num_to_return = 0;
-	while (*str <= '!' || *str >= '~')
+	while (*str == '\t' || *str == '\r' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == ' ')
 		str++;
 	check = ft_check_sign(&str, &is_neg);
 	if (check == -1)
@@ -55,6 +56,17 @@ int	ft_atoi(const char *str)
 		num_to_return *= -1;
 	return (num_to_return);
 }
+
+// #include <stdio.h>
+
+// int	main()
+// {
+// 	char	s1[] ="  \n \v \r \f \e \t  -4123\n567";
+	
+// 	printf("%d\n", ft_atoi(s1));
+// 	printf("%d", atoi(s1));
+// 	return 0;
+// }
 
 // int	ft_atoi(const char *str)
 // {

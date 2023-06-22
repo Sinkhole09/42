@@ -6,20 +6,22 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:06:39 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/06/20 11:37:43 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:43:23 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int k)
 {
-	int	index;
-	int	temp_index;
+	int				index;
+	int				temp_index;
+	unsigned char	c;
 
-	if ((*str == '\0' && c == 0) || c > 255)
+	c = (unsigned char)k;
+	if ((*str == '\0' && c == 0))
 		return ((char *)str);
-	if (str == NULL || *str == '\0' || c > 255)
+	if (str == NULL || *str == '\0')
 		return (NULL);
 	if (c == 0)
 		return ((char *)str + ft_strlen(str));
