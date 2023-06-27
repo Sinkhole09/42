@@ -16,11 +16,12 @@ void	ft_putchar(char c, int *len)
 {
 	(*len) += write(1, &c, 1);
 }
+
 //
 void	ft_putstr(char *str, int *len)
 {
-	int l;
-	
+	int	l;
+
 	if (str == NULL)
 	{
 		(*len) += write(1, "(null)", 6);
@@ -30,6 +31,7 @@ void	ft_putstr(char *str, int *len)
 	write(1, str, l);
 	(*len) += l;
 }
+
 //cspdiuxX%
 //ft_putchar ft_unsigned_putnbr ft_signed_putnbr ft_puthexa ft_putstr
 void	id_type(const char *input, int *len, va_list args)
@@ -39,7 +41,7 @@ void	id_type(const char *input, int *len, va_list args)
 	if (*input == '%')
 		ft_putchar('%', len);
 	else if (*input == 's')
-		ft_putstr(va_arg(args, char*), len);
+		ft_putstr(va_arg(args, char *), len);
 	else if (*input == 'd' || *input == 'i')
 		ft_signed_putnbr(va_arg(args, int), len);
 	else if (*input == 'u')
@@ -58,10 +60,10 @@ void	id_type(const char *input, int *len, va_list args)
 int	ft_printf(const char *input, ...)
 {
 	va_list	args;
-	va_start(args, input);
-	int	len;
+	int		len;
 
 	len = 0;
+	va_start(args, input);
 	while (*input != '\0')
 	{
 		if (*input == '%')

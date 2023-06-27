@@ -19,6 +19,7 @@ void	ft_puthexa(unsigned long nbr, char *base, int *len)
 	(*len)++;
 	write(1, &base[nbr % 16], 1);
 }
+
 //
 void	ft_unsigned_putnbr(unsigned int nbr, int *len)
 {
@@ -27,6 +28,7 @@ void	ft_unsigned_putnbr(unsigned int nbr, int *len)
 	write (1, &"0123456789"[nbr % 10], 1);
 	(*len)++;
 }
+
 //
 int	ft_check_num(int nb, int *len)
 {
@@ -47,7 +49,7 @@ void	ft_signed_putnbr(int nb, int *len)
 		(*len) += 11;
 		return ;
 	}
-	nb = ft_check_num(nb, len); // to check if it is negative
+	nb = ft_check_num(nb, len);
 	if (nb >= 10)
 		ft_signed_putnbr(nb / 10, len);
 	write (1, &"0123456789"[nb % 10], 1);
