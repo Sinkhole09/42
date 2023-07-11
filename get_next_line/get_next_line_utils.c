@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:02:58 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/07/03 18:53:06 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:00:22 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,6 @@ size_t	ft_strlen(const char *str)
 	while (*(str + len_count) != 0)
 		len_count++;
 	return (len_count);
-}
-
-void	*ft_memset(void*ptr, int value, size_t size)
-{
-	size_t			index;
-	unsigned char	*p;
-
-	index = 0;
-	p = (unsigned char *)ptr;
-	while (index < size)
-	{
-		*p++ = (unsigned char)value;
-		index++;
-	}
-	return (ptr);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void			*return_ptr;
-
-	if (!(count == 0 || size == 0) && count > SIZE_MAX / size)
-		return (NULL);
-	return_ptr = malloc(size * count);
-	if (!return_ptr)
-		return (NULL);
-	ft_memset(return_ptr, 0, size * count);
-	return (return_ptr);
 }
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
@@ -98,6 +70,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (index < (len_s1 + len_s2))
 		ptr_joined[index++] = s2[suffix_index++];
 	ptr_joined[index] = '\0';
-	free ((void *)s1);
 	return (ptr_joined);
 }

@@ -6,74 +6,62 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:39:03 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/07/03 19:12:16 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/07/07 19:56:02 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	clean(char **stash, int index)
+/*
+ft_strjoin, ft_substr, ft_strlen
+*/
+
+void	clean(char *stash, int index)
 {
 	int		len;
-	char	*str;
 
 	len = 0;
-	while ((*stash)[index + len])
-		len++;
-	str = malloc(sizeof(char) * (len + 1));
-	len = 0;
-	while ((*stash)[index + len])
+	while (stash[index + len])
 	{
-		str[len] = (*stash)[index + len];
+		stash[len] = stash[index + len];
 		len++;
 	}
-	str[len] = '\0';
-	free(*stash);
-	*stash = str;
+	stash[len] = '\0';
+	printf("amount left over: %d\n", len);
 }
 
-int	postion(char *buf, int *end_line)
-{
-	int	index;
-
-	index = 0;
-	while (buf[index])
-	{
-		if (buf[index] == '\n')
-		{
-			*end_line = 1;
-			break ;
-		}
-		index++;
-	}
-	return (index);
-}
-
-//new function: read()
-//ft_strjoin
 char	*get_next_line(int fd)
 {
-	char			*str;
-	static char		*buf;
-	int				index;
-	int				end_line;
-	int				bytes;
+	static char	static_buf[2048];
+	char		buf[BUFFER_SIZE];
+	char		*str_return;
+	int			index;
+	int			end_line;
 
-	str = ft_calloc(1, sizeof(char));
 	end_line = 0;
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	while (!end_line)
 	{
-		bytes = read(fd, buf, BUFFER_SIZE);
-		if (bytes <= 0)
+		index = read(fd, buf, BUFFER_SIZE);
+		if (index <= 0)
 			return (NULL);
-		buf[bytes] = '\0';
-		index = postion(buf, &end_line);
-		str = ft_strjoin(str, ft_substr(buf, 0, index));
-		clean(&buf, index);
+		printf("buffer: %s\n", buf);
+		ft_strjoin(static_buf, buf);
+		buf[index] = '\0';
+		index = 0;
+		// while (!end_line && index < BUFFER_SIZE)
+		// {
+		// 	if (buf[index] == '\n')
+		// 		end_line = 1;
+		// 	index++;
+		// }
 	}
-	free(buf);
-	return (str);
+	index = 0;
+	while (static_buf[index] != '\n')
+		index++;
+	str_return = (char *)malloc(index + 1);
+	str_return = ft_substr(static_buf, 0, index);
+	clean(static_buf, index);
+	return (str_return);
 }
 
 int main()
@@ -88,7 +76,7 @@ int main()
     char *line;
     while ((line = get_next_line(fd)) != NULL)
     {
-        printf("%s\n", line);
+        printf("%s\n\n", line);
         free(line);
     }
 
