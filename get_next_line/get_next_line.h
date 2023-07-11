@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 12:56:26 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/07/07 19:55:48 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/07/11 18:31:02 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <fcntl.h> // for open function
 
-#define	BUFFER_SIZE 2
+#define	BUFFER_SIZE 3
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);

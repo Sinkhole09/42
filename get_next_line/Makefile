@@ -6,7 +6,7 @@
 #    By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 14:12:47 by ssilakar          #+#    #+#              #
-#    Updated: 2023/07/03 16:01:11 by ssilakar         ###   ########.fr        #
+#    Updated: 2023/07/11 12:06:09 by ssilakar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@
 # CFLAGS = -Wall -Werror -Wextra
 # NAME = get_next_line.a
 # OBJECTS = $(CFILES:.c=.o)
-
+temp:
+	cc get_next_line.c get_next_line_utils.c get_next_line.h && ./a.out
 # all: $(NAME)
 # #  $(BONUS_OBJECTS)
 # $(NAME): $(OBJECTS)
