@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 18:39:03 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/07/12 19:22:55 by ssilakar         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2023/07/12 19:57:55 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,24 @@ void	clean(char **stash)
 	len = 0;
 	while ((*stash)[index + len])
 		len++;
-	str = malloc(sizeof(char) * (len + 1));
+	str = malloc(len + 1);
 	len = 0;
 	while ((*stash)[index + len])
 	{
 		str[len] = (*stash)[index + len];
 		len++;
 	}
+	// printf("This is the str: \t%s\n", str);
+	// // if (str[0] == '\0')
+	// {
+	// 	free(str);
+	// 	free(*stash);
+	// 	return (0);
+	// }
 	str[len] = '\0';
 	free(*stash);
 	*stash = str;
+	// return (1);
 }
 
 //new function: read()
@@ -73,10 +81,7 @@ char	*get_next_line(int fd)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes <= 0)
-		{
-			free(static_buf);
 			break ;
-		}
 		buf[bytes] = '\0';
 		// printf("before: %s\n", static_buf);
 		static_buf = ft_strjoin(static_buf, buf);
@@ -84,9 +89,12 @@ char	*get_next_line(int fd)
 		index = position(static_buf, &end_line);
 	}
 	free(buf);
+	index = position(static_buf, &end_line);
 	str = ft_strjoin(str, ft_substr(static_buf, 0, index));
 	// printf("just before cleaning: %s\n", static_buf);
 	clean(&static_buf);
+	if (static_buf[0] == '\0' && bytes == 0)
+		return (NULL);
 	// printf("after cleaning: %s BLANK\n", static_buf);
 	// write(1, "\n", 1);
 	return (str);
