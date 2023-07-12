@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/07/12 19:57:55 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/07/12 20:20:20 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,10 @@ char	*get_next_line(int fd)
 	free(buf);
 	index = position(static_buf, &end_line);
 	str = ft_strjoin(str, ft_substr(static_buf, 0, index));
-	// printf("just before cleaning: %s\n", static_buf);
+	// printf("just before cleaning, static is: %s\n", static_buf);
+	// printf("just before cleaning, str is: %s, %c\n", str, str[0]);
 	clean(&static_buf);
-	if (static_buf[0] == '\0' && bytes == 0)
+	if (static_buf[0] == '\0' && bytes == 0 && str[0] == '\0')
 		return (NULL);
 	// printf("after cleaning: %s BLANK\n", static_buf);
 	// write(1, "\n", 1);
@@ -119,6 +120,6 @@ int main()
     // Rest of the code here...
 
     close(fd); // Close the file descriptor
-
+	system("leaks a.out");
     return 0;
 }
