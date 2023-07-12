@@ -6,33 +6,13 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:39:03 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/07/11 20:11:16 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:22:55 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	clean(char **stash, int index)
-{
-	int		len;
-	char	*str;
-
-	len = 0;
-	while ((*stash)[index + len])
-		len++;
-	str = malloc(sizeof(char) * (len + 1));
-	len = 0;
-	while ((*stash)[index + len])
-	{
-		str[len] = (*stash)[index + len];
-		len++;
-	}
-	str[len] = '\0';
-	free(*stash);
-	*stash = str;
-}
-
-int	postion(char *buf, int *end_line)
+int	position(char *buf, int *end_line)
 {
 	int	index;
 
@@ -49,32 +29,66 @@ int	postion(char *buf, int *end_line)
 	return (index);
 }
 
+void	clean(char **stash)
+{
+	int			index;
+	int			len;
+	static char	*str;
+
+	index = position(*stash, &len) + 1;
+	len = 0;
+	while ((*stash)[index + len])
+		len++;
+	str = malloc(sizeof(char) * (len + 1));
+	len = 0;
+	while ((*stash)[index + len])
+	{
+		str[len] = (*stash)[index + len];
+		len++;
+	}
+	str[len] = '\0';
+	free(*stash);
+	*stash = str;
+}
+
 //new function: read()
 //ft_strjoin
 char	*get_next_line(int fd)
 {
 	char			*str;
-	static char		*buf;
+	char			*buf;
+	static char		*static_buf;
 	int				index;
 	int				end_line;
 	int				bytes;
 
+	write(1, "\n///////////////////\n", 21);
+	if (!static_buf)
+		static_buf = (char *)ft_calloc(1, sizeof(char));
 	str = ft_calloc(1, sizeof(char));
 	end_line = 0;
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while (!end_line)
+	bytes = BUFFER_SIZE;
+	while (!end_line && bytes == BUFFER_SIZE)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes <= 0)
-			return (NULL);
+		{
+			free(static_buf);
+			break ;
+		}
 		buf[bytes] = '\0';
-		index = postion(buf, &end_line);
-		str = ft_strjoin(str, ft_substr(buf, 0, index));
-		clean(&buf, index);
+		// printf("before: %s\n", static_buf);
+		static_buf = ft_strjoin(static_buf, buf);
+		// printf("after: %s BLANK\n", static_buf);
+		index = position(static_buf, &end_line);
 	}
 	free(buf);
-	if (str[0] == '\0')
-		return (NULL);
+	str = ft_strjoin(str, ft_substr(static_buf, 0, index));
+	// printf("just before cleaning: %s\n", static_buf);
+	clean(&static_buf);
+	// printf("after cleaning: %s BLANK\n", static_buf);
+	// write(1, "\n", 1);
 	return (str);
 }
 
