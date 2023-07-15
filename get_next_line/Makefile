@@ -6,7 +6,7 @@
 #    By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/03 14:12:47 by ssilakar          #+#    #+#              #
-#    Updated: 2023/07/12 16:32:07 by ssilakar         ###   ########.fr        #
+#    Updated: 2023/07/15 18:46:22 by ssilakar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@
 # NAME = get_next_line.a
 # OBJECTS = $(CFILES:.c=.o)
 temp:
+	cat clean.txt
 	cc get_next_line.c get_next_line_utils.c get_next_line.h && ./a.out
+	# cc -g -fsanitize=address get_next_line.c get_next_line_utils.c get_next_line.h && ./a.out
 # all: $(NAME)
 # #  $(BONUS_OBJECTS)
 # $(NAME): $(OBJECTS)

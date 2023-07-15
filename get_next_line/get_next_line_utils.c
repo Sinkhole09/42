@@ -6,7 +6,7 @@
 /*   By: ssilakar <ssilakar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:02:58 by ssilakar          #+#    #+#             */
-/*   Updated: 2023/07/12 16:30:37 by ssilakar         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:09:39 by ssilakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		ptr_joined[index++] = s2[suffix_index++];
 	ptr_joined[index] = '\0';
 	free((void *)s1);
+	// free((void *)s2);
 	return (ptr_joined);
 }
 
